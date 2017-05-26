@@ -1,0 +1,78 @@
+C/S架构
+
+MyISAM生成
+Frm 文件存储表定义
+MYD 文件存储表数据
+MYI 文件存储表的索引信息
+
+在命令行
+\G代表退出，
+\c多行清除
+
+select now(),version(),user()/*当前登录用户*/;
+
+函数名和括号不允许出现空格
+
+在命令行下执行sql文件的两种方式：
+1. 未连接数据库
+mysql -u root < F:\1.sql
+2. 已经连接数据库
+mysql>source F:\1.sql
+
+创建数据库
+CREATE DATABASE sampledb;
+查看被选中的数据库
+SELECT DATABASE();  
+选择数据库
+USE sampledb;
+选择默认数据库还有一种办法，就是链接maysql的时候，选择数据库
+mysql -u root sampdb
+
+查看一个表的信息
+DESCRIBE tablename (DESCRIBE tablename "%name%") 搜索指定列
+或者DESC tablename
+或者EXPLAIN tablename
+或者SHOW COLUNMS FROM tablename (SHOW COLUNMS FROM tablename like "%name%")
+SHOW FIELDS FROM tablename like "%name"
+SHOW的其他命令
+SHOW TABLES
+SHOW DATABASES
+未连接数据库可以使用MYSQLSHOW 
+
+ENUM('T','Q') 
+
+插入新的数据行
+1. insert into tablename values(columnv1,columnsv2,columnv3);
+2. insert into tablename (column1,columns2,column3) values (columnv1,columnsv2,columnv3);
+3. insert into tableanem set column1=columnv1,column2=columnv2,column3=columnv3;
+truncate tablename清空表数据id从1开始
+
+2014-2-23
+LOAD DATA LOCAL INFILE 'member.txt' INTO TABLE member #适合批量导入大批数据，个字段数据用空格来隔开
+member.txt tab分割作为一列，换行作为一条数据记录
+mysqlimport
+单词一日X5即日执行
+mysql数据列不区分大小写，select name=select Name.但是数据库和数据库表可能区分大小写，取决服务器文件系统和mysql配置
+null的比较毫无意义null=任何值返回的还是null
+专用null的比较，is null,is not null,column<=>null ,not (column<=>null);
+if用法，if(bool,'a','b') 如果bool为true返回a，否则返回b
+随机取数据 order by rand() limit 1;
+FORMAT($num,$decimal);函数格式化小数，第二个参数表示保留小数的位数
+SQRT($num);求$num的平方根
+CONCAT('a','b','c','d');字符串链接函数
+date日期类型可以按照年月日来筛选，MONTH(create_date)=3，筛选为三月份的。YEAR(creat_date)=2014。DAYOFMONTH(create_date)=3，3号。
+TIMESTAMPDIFF();查询两个日期的相差值，第一个参数可以是day，year,month，后面是所有的两个时间
+当前日期curdate();
+查询日期相隔天数的两种方式
+timestampdiff(day,date1,date2);
+todays(date1)-todays(date2);
+
+设置使用SQL变量
+@变量名 := 值
+select @vname := name from test;/* 保存的select的之后一个值 */
+set @vname=curdate(); /* set 可以使用= */
+
+使用distinct清除重复的数据
+
+select count(*) 统计所有的条数
+select count(col) 只统计所有col不为null的数据

@@ -1,0 +1,2 @@
+生成模块
+php think build --module demo

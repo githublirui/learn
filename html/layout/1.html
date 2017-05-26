@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=11" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" />
+        <meta content="yes" name="apple-mobile-web-app-capable" /> 
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+        <meta content="telephone=no" name="format-detection" /> 
+        <title>横向两列布局（浮动）</title>
+        <style>
+            *{margin: 0;padding: 0;}
+            #wrap{
+                background: black;
+                width:960px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            #header{
+                background: blue;
+                width: 100%;
+            }
+            #mainBody{
+                overflow: hidden;
+                background: red;
+                width: 100%;
+                clear: both;
+            }
+            #mainBody .leftContent{
+                background: #006600;
+                width: 760px;
+                float: left;
+                height:200px;
+            }
+            #mainBody .rightContent{
+                background: #0066ff;
+                width: 180px;
+                float: right;
+                height:500px;
+            }
+            #footer{
+                width: 100%;
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="header">头部</div>
+            <div id="mainBody">
+                <div class="leftContent">
+                    左侧内容
+                </div>
+                <div class="rightContent">
+                    右侧内容
+                </div>
+            </div>
+            <div id="footer">版权信息</div>
+        </div>
+    </body>
+</html>

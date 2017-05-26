@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=11" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" />
+        <meta content="yes" name="apple-mobile-web-app-capable" /> 
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+        <meta content="telephone=no" name="format-detection" /> 
+        <title>下拉菜单</title>
+        <link type="text/css" rel="stylesheet" href="/lib/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    下拉菜单
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+                </ul>
+            </div> 
+            <input type="button" class="errorMsg_layer" value="点我没反应"/>
+        </div>
+        <script src="/lib/jquery/jquery-3.2.0.min.js"></script>
+        <script src="/lib/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <script type="text/javascript">
+            //除了元素之外的时间
+//            $('html').click(function (e) {
+//                if (!$(e.target).hasClass('errorMsg_layer'))
+//                {
+//                    alert(333);
+//                }
+//            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+php symfony demo
+
+$ php -S localhost:8000 router.php #php web server
+
+创建项目
+php symfony new project_name

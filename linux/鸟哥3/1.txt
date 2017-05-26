@@ -1,0 +1,169 @@
+1. linux的发展
+minix,BSD
+linux 托瓦兹
+
+1.硬盘
+第一扇区记录分割表和主要启动记录区
+
+分割表最多有四个分区 即  主分区+扩展分区 <=4
+扩展分区可以再分区 P+P+P+E
+
+硬盘挂载
+挂载根目录  挂载/home
+
+比较占硬盘的文件夹
+/
+/var
+/home
+/usr
+
+Alt + Ctrl + F1 ~ f6 切换到文字登录
+Alt + Ctrl + F7 切换到图形登录
+
+修改 /etc/inittab   
+
+id:5:initdefault: #3和5  开机启动类型 图形/文字
+
+echo $LANG输出目前所支持的语系
+改为英文系
+$LANG=en_US
+简单指令
+1. 显示日期
+date  #date +%Y/%m/%d/%H%M
+2. 显示日历
+cal  #cat 2009 #cat 12 2009
+3. 计算器
+bc
+
+
+/usr/share/man  相关文档目录
+man帮助代号
+1 用户在shell环境中可以操作的挃令戒可执行文件  -*
+2 系统核心可呼叫的凼数不工具等 
+3 一些常用的凼数(function)不凼式库(library)，大部分为C的凼式库(libc)
+4 装置档案的说明，通常在/dev下的档案 
+5 配置文件戒者是某些档案的格式  -*
+6 游戏(games) 7 惯例不协议等，例如Linux文件系统、网绚协议、ASCII code等等的说明 
+8 系统管理员可用的管理挃令 -*
+9 跟kernel有关的文件
+
+/usr/share/doc说明文档
+
+who #查看目前谁在线
+netstat -a #查看联网情况
+tail -n 10 //查看最后10行数据
+
+关机
+sync 把内存数据写入磁盘
+shutdown,reboot,halt,poweroff,init 0,
+clear清屏，
+
+shutdown -h now #立即关机,init 0
+shutdown -h 18:50 #18.50关机
+
+
+#文件档案
+查看列表
+ls -al#包含隐藏文件
+
+chgrp 改变组
+chown 改变所有者  #chown ftp test.txt #chown #chown ftp:ftp 111.txt
+chmod 改变权限
+
+u:所有者
+g:用户组
+o:其他用户
+a:  u+g+o
+r:读权限  数字4
+w:写权限  数字2
+x:执行权限 数字1
+
+chmod两种方式
+1. chmod 777  -rwxrwxrwx
+2. chmod a+rwx,a-rwx,a=rwx
+
+添加用户
+useradd,userdel,passwd(添加后设置密码)
+创建用户后会创建目录
+/home/username
+/var/spool/mail
+
+文件目录
+分享，不可分享，可变，不可变
+/bin  系统放置的可执行文件目录，cat chmod
+/boot 开机所需要的文档
+/dev  设备档案相关
+/etc  系统主要配置目录，各种服务启动档
+/home 用户家目录
+
+/opt  
+/proc 文件系统是一个伪文件系统，它只存在内存当中 以文件系统的方式为访问系统内核数据的操作提供接口,#proc cpuinfo
+
+/var  软件生成的文件目录，运行占用目录
+/usr  软件安装目录，安装占用目录
+
+目录
+cd切换目录
+pwd显示当前目录
+mkdir 建立新目录   mkdir -p 生成多级目录 -m 777 添加权限
+rmdir 删除目录
+
+ls -al | grep ^- 显示文件
+ls -al | grep ^d 显示文件夹
+
+设置PATH，相当于环境变量
+echo $PATH #查看环境变量
+PATH="$PATH":/liruitest/bin#添加环境变量
+
+.bashrc  别名
+alias cp='cp -i'
+
+rm   #f强制，r递归删除
+cp   #f强行复制文件或目录,i提示，r递归处理，v显示执行过程，a（常用）
+mv   #f,i 
+
+获取目录名和文件名
+basename
+dirname
+
+查阅文件内容
+cat   从头开始
+tac   从尾开始
+nl=cat -n输出带行号
+head  #c显示字节数，n显示行数  从头开始输出  常用 head -n 10 3.txt #显示前十行
+tail  #n行数，f循环输出        从文件尾
+
+touch #1.修改文件时间，2创建空文件
+
+umask 默认没有x执行权限默认-rw-rw-rw-
+umask数字为去掉的权限
+所以022为   -rw-r--r--
+
+文件隐藏属性
+1.查看隐藏属性 lsattr 文件名
+2.添加隐藏属性
+chattr (+-=) (属性)
+3.属性列表
+a：选项强制只可添加不可删除
+i：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容
+
+SUID SGID权限
+a+s
+a+t
+
+脚本文件搜索
+which ls #搜索ls命令 所在目录
+
+本地文档搜索
+whereis,locate,find
+find /etc -name "*.php"  
+find /etc -name "*.php"  
+find /etc -user "*.php"  
+find /etc -group "*.php"  
+find /etc -size "*.php"  
+find -a,-o,  and和or的意思
+find /etc | grep xargs '搜索文本内容'
+find /etc -exec chown -R daemon:daemon {} \;搜索到的内容执行命令
+
+inode,block ,superblock
+

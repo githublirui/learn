@@ -1,0 +1,43 @@
+git更新指定文件
+git fetch
+git checkout origin/master -- path/to/file
+
+git还原本地文件
+git checkout -- path/to/file
+
+git还原暂存区
+git reset HEAD -- path/to/file
+
+本地分支合并到远程分支
+git push origin branch1:branch1
+
+合并分支不提交
+git merge --squash another
+
+切换分支
+git branch lirui_43558 origin/lirui_43558
+拉去远程分支代码
+git pull origin lirui_43558
+设置默认提交的远程分支
+git push --set-upstream origin master
+
+生成一个github用的SSH-Key
+ssh-keygen -t rsa -C "649037629@qq.com" -f ~/.ssh/github-weiqing1-rsa
+添加私钥
+$ ssh-agent bash
+$ ssh-add ~/.ssh/github-weiqing1-rsa
+# 可以通过 ssh-add -l 来确私钥列表
+$ ssh-add -l
+# 可以通过 ssh-add -D 来清空私钥列表
+$ ssh-add -D
+
+配置tortoisegit 配置
+
+Puttygen 生成密钥，公钥保存到github
+Pageant 添加密钥
+
+tortoisegit设置网络  ssh客户端bin路径
+C:\Program Files\TortoiseGit\bin\TortoiseGitPlink.exe
+
+
+
