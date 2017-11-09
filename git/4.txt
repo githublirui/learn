@@ -1,0 +1,9 @@
+windows 克隆
+1. 创建裸仓库
+git init --bare gittest.git
+
+2. 克隆
+git clone file://G:/tmp/desktop/2017/8/gittest/respon/gittest.git
+
+github添加ssh-key
+#1 用Putty kEY 生成公钥

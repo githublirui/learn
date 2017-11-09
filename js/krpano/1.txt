@@ -1,0 +1,44 @@
+#根元素
+<krpano version="1.17"     版本号
+        onstart=""         网页启动时调用的函数
+        basedir="%FIRSTXML%" 设置程序根目录
+        bgcolor=""      页面背景颜色
+        idletime="0.5"  没用户干预情况下的调用时间
+        colorcorrection="default" flash 10配送方案
+        logkey="true"     是否输出日志
+        showerrors="true"  是否输出错误信息
+        debugmode="false"  编译模式是否打开
+    >
+    ...
+</krpano>
+
+#自定义鼠标右键菜单
+<contextmenu fullscreen="false"           是否显示全屏项
+             native="false"               是否试用原生项目，设置为true禁止自定义菜单
+             versioninfo="true"           是否显示版本信息
+             enterfs="Fullscreen"         设置自动全屏项目
+             exitfs="Exit Fullscreen"	  设置退出全屏项目
+             touch="false" 触屏是否出现右键
+             >
+    <item name="..."                自定义项目名称
+          caption="..."             显示的标题
+          enabled="true"	    是否点击生效
+          visible="true"            是否可见
+          separator="false"         是否显示分隔条
+          showif=""		    showif="view.vlookatrange GE 180" 本item只在该条件情况下显示	
+          onclick="..."             点击后执行
+          />
+    <item name="..."
+          caption="..." 
+          onclick="..." 
+          />
+</contextmenu>
+
+#预览 过渡全景图
+<preview type=""                   过渡全景图的类型，grid(网格),image(图片)
+         url="previewpano.jpg"     过渡全景图路径
+         striporder="LFRBUD"       定义图像顺序
+         details="16"              图像细节质量调整，越大越清晰
+         />
+
+

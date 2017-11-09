@@ -31,13 +31,65 @@ $ ssh-add -l
 # 可以通过 ssh-add -D 来清空私钥列表
 $ ssh-add -D
 
-配置tortoisegit 配置
+配置tortoisegit
+本地git bash
+echo "# peihu" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:githublirui/peihu.git
+git push -u origin master
+Puttygen 生成密钥rsa，Pageant 添加密钥
+公钥保存到github
+gittortoise 设置私钥路径  C:\Users\Administrator.SKY-20160429TDK\.ssh
+如果还是没权限 退出pageant 重新添加
 
-Puttygen 生成密钥，公钥保存到github
-Pageant 添加密钥
-
+添加
 tortoisegit设置网络  ssh客户端bin路径
 C:\Program Files\TortoiseGit\bin\TortoiseGitPlink.exe
 
+忽略文件权限
+old mode 100755 new mode 100644让git忽略掉文件权限检查：
+git config --add core.filemode false
 
 
+git fsck --name-objects
+解决 git fatal: unable to read tree
+
+换行问题
+git config --global core.autocrlf true
+
+
+解决 fatal: refusing to merge unrelated histories
+git pull origin master --allow-unrelated-histories
+
+git reset --hard HEAD 还原本地修改
+git reset --hard HEAD^ 回退版本
+git reset --hard 0b0275e 回退版本
+
+git reflog 查看版本历史
+git reflog show master | head -5查看版本历史
+git blame filename　查看文件修改历史
+
+git add -u
+git add -i 
+
+修改忽略
+git config --global core.excludesfile ~/.gitignore
+
+git add -u：将文件的修改、文件的删除，添加到暂存区。
+git add .：将文件的修改，文件的新建，添加到暂存区。
+git add -A：将文件的修改，文件的删除，文件的新建，添加到暂存区。
+
+忽略已经提交的文件
+git update-index --assume-unchanged logs/*.log
+删除忽略
+git update-index --no-assume-unchanged <file>
+
+git reflog 查看修改
+git reset --hard commit_id 回退到哪个版本
+例如git reset --hard d48fae4f7
+还原
+
+解决object 错误
+git fsck --name-objects

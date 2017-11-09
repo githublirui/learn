@@ -1,0 +1,5 @@
+<preview type="grid(cube)"/>  立方体
+<preview type="grid(sphere)"/> 球体
+<preview type="grid(cube,16,16,256,0x888800,0x000044,0xFFFFFF);"/>  带颜色
+<preview type="sphere" url="spherepreview.jpg"/> 球形图片
+<preview type="cubestrip" url="cubestrippreview.jpg"/> 方形图片
